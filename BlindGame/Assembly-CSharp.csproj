@@ -56,15 +56,15 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ForceField\Demo\Data\TurnOnDepthBuffer.cs" />
     <Compile Include="Assets\04. Script\01. Camera\CameraMaov.cs" />
-    <Compile Include="Assets\04. Script\02.Player\PlayerInput.cs" />
-    <Compile Include="Assets\04. Script\02.Player\PlayerMove.cs" />
-    <Compile Include="Assets\04. Script\02.Player\PlayerManager.cs" />
-    <Compile Include="Assets\04. Script\03. Wave\WaveManager.cs" />
     <Compile Include="Assets\04. Script\03. Wave\Wave.cs" />
-    <Compile Include="Assets\04. Script\03. Wave\WaveObject.cs" />
+    <Compile Include="Assets\04. Script\02.Player\PlayerInput.cs" />
     <Compile Include="Assets\Resource.cs" />
+    <Compile Include="Assets\04. Script\02.Player\PlayerMove.cs" />
+    <Compile Include="Assets\04. Script\03. Wave\WaveObject.cs" />
+    <Compile Include="Assets\04. Script\03. Wave\WaveManager.cs" />
+    <Compile Include="Assets\04. Script\02.Player\PlayerManager.cs" />
+    <Compile Include="Assets\ForceField\Demo\Data\TurnOnDepthBuffer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\00. Assets\ForceField\ForceField.shader" />

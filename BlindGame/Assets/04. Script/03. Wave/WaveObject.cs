@@ -16,17 +16,18 @@ public class WaveObject : MonoBehaviour
     public WAVESTATE ObjectState;
 
     [Header("WaveInfo")]
-    public float Idle_WaveSize;//Idle 상태 웨이브 사이즈
-    public float Idle_WaveSpeed;//Idle 상태 웨이브 스피드
-    public float Idle_WaveInterval;//Idle 상태 웨이브 간격
+    public WAVETAG WaveTag;         // 웨이브 태그
+    public Color32 WaveColor;       // 웨이브 색상
+    
+    [Header("IdleWaveInfo")]
+    public float Idle_WaveSize;     //Idle 상태 웨이브 사이즈
+    public float Idle_WaveSpeed;    //Idle 상태 웨이브 스피드
+    public float Idle_WaveInterval; //Idle 상태 웨이브 간격
 
-    public float Move_WaveSize;//Move 상태 웨이브 사이즈
-    public float Move_WaveSpeed;//Move 상태 웨이브 스피드
-    public float Move_WaveInterval;//Move 상태 웨이브 간격
-
-    public WAVETAG WaveTag; //웨이브 태그
-    public int SoundImageNumber;// 웨이브 이미지넘버
-    public int WaveSoundNumber;// 웨이브 소리넘버
+    [Header("MoveWaveInfo")]
+    public float Move_WaveSize;     //Move 상태 웨이브 사이즈
+    public float Move_WaveSpeed;    //Move 상태 웨이브 스피드
+    public float Move_WaveInterval; //Move 상태 웨이브 간격
 
     private void Awake()
     {
@@ -51,7 +52,7 @@ public class WaveObject : MonoBehaviour
         if (Idle_Delta >= Idle_WaveInterval)
         {
             Idle_Delta = 0f;
-
+            _WaveManager.SetWave(transform.position, Idle_WaveSize, Idle_WaveSpeed, WaveColor, WaveTag);
         }
 
     }
@@ -62,13 +63,15 @@ public class WaveObject : MonoBehaviour
         if (Move_Delta >= Move_WaveInterval)
         {
             Move_Delta = 0f;
-
+            _WaveManager.SetWave(transform.position, Move_WaveSize, Move_WaveSpeed, WaveColor, WaveTag);
         }
     }
 
     public void ChangeState(WAVESTATE State)
     {
         ObjectState = State;
+        Idle_Delta = 0f;
+        Move_Delta = Move_WaveInterval;
     }
 
     public void IdleWaveSet(float WaveSize, float WaveSpeed, float WaveInterval)
